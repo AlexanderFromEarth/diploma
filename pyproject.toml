@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "diploma"
+version = "0.1.0"
+description = "My diploma work. Kappa Keppo."
+authors = ["AlexanderFromEarth <alexanderfromearth@gmail.com>"]
+packages = [
+  { "include" = "core", "from" = "src" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.10"
+Kivy = "^2.0.0"
+numpy = "^1.20.2"
+scipy = "^1.6.3"
+
+[tool.poetry.dev-dependencies]
+yapf = {extras = ["toml"], version = "^0.31.0"}
+mypy = "^0.812"
+rope = "^0.19.0"
+bandit = "^1.7.0"
+pylint = "^2.8.2"
+
+[tool.yapf]
+based_on_style = "facebook"
+column_limit = 100
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
