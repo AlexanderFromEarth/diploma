@@ -1,7 +1,7 @@
 from collections.abc import Iterable
 from typing import Protocol
 
-from core.entities import Note
+from core.entities.note import Note
 
 
 class Model(Protocol):
