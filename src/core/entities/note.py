@@ -1,12 +1,18 @@
+from collections.abc import Iterable
 from dataclasses import dataclass, field
 
+from core.entities.tab import Tab
+from core.entities.time_interval import TimeInterval
 
-@dataclass
-class Note:
+
+@dataclass(frozen=True)
+class Note(TimeInterval):
     pitch: int = field()
-    duration: float = field()
-    start: float = field()
-    end: float = field(init=False)
 
-    def __post_init__(self):
-        self.end = self.start + self.duration
+    def tabs(self) -> Iterable[Tab]:
+        return []
+
+    @classmethod
+    def from_tab(cls, tab: Tab) -> "Note":
+        return Note(on_time=tab.on_time, off_time=tab.off_time, pitch=43) # type: ignore
+        # IDK why it's says unexpected argument
